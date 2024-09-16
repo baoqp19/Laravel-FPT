@@ -15,6 +15,9 @@ class EnsureTokenIsValid
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if($request->input("token") == env("SECRET_TOKEN")){
+            return $next($request);
+        }
+        abort(403);
     }
 }
