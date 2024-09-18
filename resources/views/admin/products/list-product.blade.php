@@ -1,5 +1,20 @@
 @extends('admin.layouts.default');
 
+
+@section('title')
+    @parent
+    Danh sách sản phẩm
+@endsection
+
+@push('styles')
+    <style>
+        h1{
+            color: red;
+        }
+    </style>    
+@endpush
+
+
 @section('content')
 <div>
     <h1 class="" >Danh sách sản phẩm</h1>
