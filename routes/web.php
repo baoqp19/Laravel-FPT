@@ -20,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('rolex:diritct, admin');
 
 Route::match(['get', 'post'], 'tests' , [UserController::class, 'index']);
+
+
+Route::get('test2', function(){
+    return view('admin.products.list-product');
+});
