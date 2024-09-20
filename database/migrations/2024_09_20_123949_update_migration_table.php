@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function(Blueprint $table){
-            $table->string('name', 250)->change();
-            $table->string('votes', 20);
+        Schema::table('product_comment', function(Blueprint $table){
+
+            $table->text('comment');
         });
     }
 
@@ -24,8 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('products', function(Blueprint $table){
-            $table->string('name', 200)->change();
-            $table->dropColumn(['votes']);
+            $table->dropColumn('view');
         });
     }
 };
