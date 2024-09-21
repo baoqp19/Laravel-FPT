@@ -36,7 +36,7 @@ class ProductController extends Controller
 
       $linkImage = $linkStorage . $newName;
     }
-    $data = [
+    $data = [ 
       'name' => $request->nameSP,
       'price' => $request->priceSP,
       'image' => $linkImage,
@@ -45,6 +45,13 @@ class ProductController extends Controller
     Product::create($data);
     return redirect()->route('admin.products.listProduct')->with([
       'message' => 'Thêm sản phẩm thành công'
+    ]);
+  }
+
+  public function detailProduct($idProduct){
+    $product  = Product::where('id', $idProduct)->first();
+    return view('admin.products.detail-product')->with([
+      'product' => $product,
     ]);
   }
 }

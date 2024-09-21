@@ -28,6 +28,7 @@
                 <input type="file" id="imageSP" name="imageSP" class="form-control">
             </div>
             <button class="btn btn-success">Thêm mới</button>
+            
         </form>
     </div>
 @endsection

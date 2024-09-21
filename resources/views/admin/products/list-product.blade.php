@@ -18,7 +18,7 @@
 @section('content')
 <div>
     @if(session('message'))
-          <h1>{{session('message')}}</h1>  
+   `` {{ session('message') }}   
     @endif
     <h1 class="" >Danh sách sản phẩm</h1>
     <a href="{{ route('admin.products.addProduct')}}" class="btn btn-info">Thêm mới</a>
@@ -42,6 +42,7 @@
                         <img src="{{asset($value->image)}}" alt="">
                     </td>
                      <td>
+                       <a href="{{route('admin.products.detailProduct', $value->id)}}">Chi tiết</a>
                         <button class="btn btn-warning">Sửa</button>
                         <button class="btn btn-danger">Xóa</button>
                      </td>
@@ -51,3 +52,9 @@
     </table>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+
+    </script>   
+@endpush

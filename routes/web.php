@@ -21,25 +21,15 @@ use App\Http\Controllers\admin\ProductController;
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.'
-], function(){
+], function () {
     Route::group([
         'prefix' => 'products',
         'as' => "products."
-    ], function(){
+    ], function () {
         Route::get('/', [ProductController::class, 'listProduct'])->name('listProduct');
         Route::get('add-product', [ProductController::class, 'addProduct'])->name('addProduct');
         Route::post('add-Product', [ProductController::class, 'addPostProduct'])->name('addPostProduct');
-    
-    });
+        Route::post('delete-product', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
+        Route::get('detail-product/{idProduct}', [ProductController::class, 'detailProduct'])->name('detailProduct');
+     });
 });
-
-
-
-
-
-
-
-
-
-
-
