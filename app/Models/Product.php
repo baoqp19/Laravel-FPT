@@ -9,4 +9,12 @@ class Product extends Model
 {
     use HasFactory;
     protected $table = 'products';
+
+    public $pimaryKey = 'id';
+    
+    public $fillable = [
+        'name',
+        'price',
+        'image',
+    ];
 }

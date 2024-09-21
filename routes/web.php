@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\EnsureTokenIsValid;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->middleware('rolex:diritct, admin');
-
-Route::match(['get', 'post'], 'tests' , [UserController::class, 'index']);
 
 
-Route::get('test2', function(){
-    return view('admin.products.list-product');
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.'
+], function(){
+    Route::group([
+        'prefix' => 'products',
+        'as' => "products."
+    ], function(){
+        Route::get('/', [ProductController::class, 'listProduct'])->name('listProduct');
+        Route::get('add-product', [ProductController::class, 'addProduct'])->name('addProduct');
+        Route::post('add-Product', [ProductController::class, 'addPostProduct'])->name('addPostProduct');
+    
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
