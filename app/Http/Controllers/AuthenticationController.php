@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserLoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class AuthenticationController extends Controller
         return view('login');
     }
 
-    public function postLogin(Request $request)
+     public function postLogin(UserLoginRequest $request)
     {
         $dataUserLogin = [
             'email' => $request->email,
